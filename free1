@@ -1,0 +1,14 @@
+import schedule
+import time
+
+def job():
+    print("Task is running...")
+
+# Schedule the job every day at a specific time (e.g., 10:00 AM)
+schedule.every().day.at("10:00").do(job)
+
+print("Scheduler started. Waiting for the scheduled time...")
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)  # Sleep for a short time to avoid busy waiting
